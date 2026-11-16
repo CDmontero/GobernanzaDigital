@@ -1,6 +1,43 @@
 @GobernanzaDigital_HostAddress = http://localhost:5048
 
-GET {{GobernanzaDigital_HostAddress}}/weatherforecast/
-Accept: application/json
+### Crear servicio
+POST {{GobernanzaDigital_HostAddress}}/api/servicios
+Content-Type: application/json
 
-###
+{
+  "nombre": "Tasa de Alumbrado Público",
+  "descripcion": "Cobro mensual de alumbrado",
+  "frecuenciaEnMeses": 1,
+  "montoBase": 1500.50
+}
+
+### Listar todos
+GET {{GobernanzaDigital_HostAddress}}/api/servicios
+
+### Obtener por id
+GET {{GobernanzaDigital_HostAddress}}/api/servicios/1
+
+### Actualizar
+PUT {{GobernanzaDigital_HostAddress}}/api/servicios/1
+Content-Type: application/json
+
+{
+  "nombre": "Tasa de Alumbrado Público",
+  "descripcion": "Cobro mensual actualizado",
+  "frecuenciaEnMeses": 1,
+  "montoBase": 1800
+}
+
+### Eliminar
+DELETE {{GobernanzaDigital_HostAddress}}/api/servicios/1
+
+### Probar validación (tiene que dar 400)
+POST {{GobernanzaDigital_HostAddress}}/api/servicios
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "descripcion": "",
+  "frecuenciaEnMeses": 99,
+  "montoBase": 0
+}

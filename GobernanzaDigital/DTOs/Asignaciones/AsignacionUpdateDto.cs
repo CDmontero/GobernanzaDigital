@@ -6,7 +6,7 @@ namespace GobernanzaDigital.DTOs
     {
         public DateTime? FechaBaja { get; set; }
 
-        [Range(typeof(decimal), "0.01", "999999999")]
-        public decimal? MontoPersonalizado { get; set; }
+        [Range(typeof(decimal), "0.01", "999999999", ParseLimitsInInvariantCulture = true, ConvertValueInInvariantCulture = true)]
+        public decimal MontoBase { get; set; }
     }
 }

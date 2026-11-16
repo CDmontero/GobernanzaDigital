@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using GobernanzaDigital.Data;
+using GobernanzaDigital.Interfaces;
+using GobernanzaDigital.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<GobernanzaContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("GobernanzaDb")));
+
+builder.Services.AddScoped<IServicioService, ServicioService>();
 
 var app = builder.Build();
 
