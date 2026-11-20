@@ -1,0 +1,10 @@
+# Compilación
+bin/
+obj/
+.vs/
+*.user
+
+# Base de datos local de pruebas (se recrea sola al ejecutar)
+*.db
+*.db-shm
+*.db-wal
